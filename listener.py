@@ -61,7 +61,7 @@ C_BLACK = (0, 0, 0)
 C_WHITE = (255, 255, 255)
 fi, teta, view_angle = 0, 0, 60
 dx, dy, dz = 0, 0, 0
-dang, dr = 0.5, 0.5
+dr = 0.2
 f = win[0] / np.tan(np.deg2rad(view_angle) / 2) / 2
 
 v = map_vectors(a)
@@ -117,7 +117,7 @@ while True:
             elif event.key == pg.K_s:
                 dz += dr
         elif event.type == pg.MOUSEMOTION:
-            fi += event.rel[0]
+            fi += event.rel[0] / 2
             teta += -event.rel[1] / 2
     v, R = set_cam_angle(fi, teta, v, v1)
     v, v1 = move_cam(v, v1, [dx, dy, dz, 0], R)
