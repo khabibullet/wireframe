@@ -1,6 +1,12 @@
 import pygame as pg
 import numpy as np
+from os import path
 
+relpath = '/fdf_maps/plat.fdf'
+dirpath = path.dirname(__file__)
+wholepath = dirpath + relpath
+map = open(wholepath)
+a = np.loadtxt(map, delimiter=" ")
 
 def draw_map(v, F):
     sc.fill(C_WHITE)
@@ -53,8 +59,6 @@ def map_vectors(a):
 		v[:, i[0], i[1]] = [i[0] - xoffs, i[1] - yoffs, a[i], 1]
 	return v
 
-map = open("/Users/irek/Downloads/drive/MyDrive/fdf_maps/plat.fdf")
-a = np.loadtxt(map, delimiter=" ")
 
 win, mapsize = (700, 500), (np.shape(a)[0], np.shape(a)[1])
 C_BLACK = (0, 0, 0)
