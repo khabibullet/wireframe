@@ -2,7 +2,7 @@ import pygame as pg
 import numpy as np
 from os import path
 
-relpath = '/fdf_maps/plat.fdf'
+relpath = '/fdf_maps/pylone.fdf'
 dirpath = path.dirname(__file__)
 wholepath = dirpath + relpath
 map = open(wholepath)
